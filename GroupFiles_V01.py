@@ -32,7 +32,7 @@ def get_dataset_keys(f):
 
 # %%
 def check_regular( file ):
-    names = None, None
+    names = None
 
     if 'reg' in file:
         kH = file.find( 'H' )+1
@@ -62,7 +62,7 @@ def check_regular( file ):
 
 # %%
 def check_irregular( file ):
-    names = None, None
+    names = None
 
     if 'irr' in file:
 
@@ -103,7 +103,8 @@ for file in file_lst:
     else:
         names = check_irregular( file )
         
-    files_all2one[ file ] = names
+    if names is not None:
+        files_all2one[ file ] = names
 
 # for key, val in files_all2one.items():
 #     print( key, val )
